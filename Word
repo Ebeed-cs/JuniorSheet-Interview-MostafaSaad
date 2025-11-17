@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cctype>
+
+int main() {
+	std::string input, upTxt;
+	std::cin >> input;
+	int upCount = 0, loCount = 0;
+	int len = input.length();
+	for (int i = 0; i < len; ++i) {
+		if (input[i] <= int('Z') && input[i] >= int('A')) {
+			upCount++;
+			input[i] = tolower(input[i]);
+		}
+		upTxt += toupper(input[i]);
+	}
+	loCount = len - upCount;
+	std::cout << ((upCount > loCount) ? upTxt : input);
+	return 0;
+}
